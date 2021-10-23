@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>X (html) Eyes</title>
+    <!--
+    <link rel="stylesheet" href="assets/eyes-20x20.css">
+    -->
+    <style>
+        html,
+        body,
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            min-width: 200px;
+            min-height: 200px;
+            image-rendering: crisp-edges;
+            image-rendering: pixelated;
+        }
+    </style>
+</head>
+
+<body>
+    <b4u-head></b4u-head>
+    <!--
+    <div class="head">
+        <div class="eye left-eye"></div>
+        <div class="eye right-eye"></div>
+    </div>
+    -->
+    <script src="js/web-components/head.js"></script>
+    <!--
+    <script>
+        let head, eyes;
+        const HEAD_WIDTH = 20;
+        const HEAD_HEIGHT = 20;
+        window.addEventListener("load", () => {
+            // //head = document.querySelector(".head")
+            // head = queryShadow(["b4u-head"], ".head");
+            // // eyes = document.querySelectorAll(".eye")
+            // eyes = queryShadow(["b4u-head","b4u-eye"], ".eye",true)
+            /*
+            window.addEventListener("mousemove", mouseListener)
+            */
+        })
+
+        function mouseListener(event) {
+            eventDomCoord = {
+                x: window.scrollX + event.clientX,
+                y: window.scrollY + event.clientY
+            };
+            let dx = eventDomCoord.x - head.offsetLeft - (HEAD_WIDTH / 2)
+            let dy = eventDomCoord.y - head.offsetTop - (HEAD_HEIGHT / 2)
+                //console.log(window.getComputedStyle(head, null).width);
+                //console.log(eventDomCoord.x + "\t" + head.offsetLeft + "\t" + dx);
+            let dirX = 0;
+            if (dx > HEAD_WIDTH / 2) {
+                dirX = 1;
+            } else if (dx < -HEAD_WIDTH / 2) {
+                dirX = -1
+            }
+            let dirY = 0;
+            if (dy > HEAD_HEIGHT / 2) {
+                dirY = 1;
+            } else if (dy < -HEAD_HEIGHT / 2) {
+                dirY = -1
+            }
+            // console.log(dy + "\t=>\t" + dirY);
+            eyes.forEach(eye => {
+                let classes = eye.classList
+                if (dirX < 1) classes.remove("right")
+                if (0 < dirX) classes.add("right")
+                if (-1 < dirX) classes.remove("left")
+                if (dirX < 0) classes.add("left")
+
+                if (dirY < 1) classes.remove("bottom")
+                if (0 < dirY) classes.add("bottom")
+                if (-1 < dirY) classes.remove("top")
+                if (dirY < 0) classes.add("top")
+            });
+        }
+
+        // Src : https://stackoverflow.com/questions/29629492/how-to-query-elements-within-shadow-dom-from-outside-in-dart
+        // allows to chain nested shadowRoots explorations, e.g. :
+        // document.querySelector("b4u-head").shadowRoot.querySelector("b4u-eye").shadowRoot.querySelector(".eye")
+        function queryShadow([firstShadowSelector, ...restOfTheShadowSelectors], itemSelector, all=false) {
+            const qs = "querySelector" + (all ? "All" : "");
+            console.log("QS : with " + restOfTheShadowSelectors.length + " nested shadows to explore, with " + qs + "()")
+            const reduceFunction = (currShadow, nextShadowSelector) => {
+                console.log("  Reducing, with current & next :");
+                console.log(currShadow);
+                console.log(nextShadowSelector);
+                return currShadow.shadowRoot.querySelector(nextShadowSelector)
+            };
+            const firstShadow = document.querySelector(firstShadowSelector);
+            const lastShadow = restOfTheShadowSelectors.length > 0 ?
+                     restOfTheShadowSelectors.reduce(reduceFunction, firstShadow)
+                     : firstShadow;
+                     
+            console.log("QS : last found shadow :");
+            console.log(lastShadow);
+            console.log("QS : with selector " + itemSelector + " :");
+            console.log(lastShadow.shadowRoot[qs](itemSelector));
+            return lastShadow && lastShadow.shadowRoot[qs](itemSelector);
+        }
+    </script>
+    -->
+</body>
+
+</html>

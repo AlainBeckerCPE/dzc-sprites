@@ -1,0 +1,43 @@
+{
+    "canvasWidth": 20,
+    "canvasHeight": 20,
+    "editorMode": "Basic",
+    "color0": "#000000",
+    "color1": "#1D2B53",
+    "color2": "#7E2553",
+    "color3": "#008751",
+    "color4": "#AB5236",
+    "color5": "#5F574F",
+    "color6": "#C2C3C7",
+    "color7": "#FFF1E8",
+    "color8": "#FF004D",
+    "color9": "#FFA300",
+    "color10": "#FFEC27",
+    "color11": "#00E436",
+    "color12": "#29ADFF",
+    "color13": "#83769C",
+    "color14": "#FF77A8",
+    "color15": "#FFCCAA",
+    "nLayers": 5,
+    "layer3": {
+        "canvasSize": [
+            20,
+            20
+        ],
+        "canvas": {
+
+        },
+        "context": {
+            "mozImageSmoothingEnabled": false
+        },
+        "isSelected": true,
+        "isVisible": true,
+        "isLocked": false,
+        "menuEntry": {
+
+        },
+        "id": "layer6",
+        "name": "Layer 0"
+    },
+    "layer3ImageData": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAAAXNSR0IArs4c6QAAAGpJREFUOE9jZICA/1AaRjEi8UmSA2lE1gAzCCQGk0NWgy6GrB7sBpoZiOxFWBAguwY5RNBdjyJHlia04MAwkOqRghbBlHExYglqHMXJhuqRgp6gh3k6HE028OKMrGxJliZCeXnwl4dUTTYAC9hgCfRmwg8AAAAASUVORK5CYII="
+}

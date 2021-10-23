@@ -1,0 +1,60 @@
+html,
+body,
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    min-width: 200px;
+    min-height: 200px;
+    image-rendering: crisp-edges;
+    image-rendering: pixelated;
+}
+
+.head {
+    position: relative;
+    width: 20px;
+    height: 20px;
+    border: 1px solid #666;
+    margin: 2em auto;
+}
+
+.left-eye,
+.right-eye {
+    position: absolute;
+    top: 7px;
+}
+
+.left-eye {
+    left: 3px;
+}
+
+.right-eye {
+    right: 3px;
+}
+
+.eye {
+    width: 6px;
+    height: 6px;
+    
+    background-image: url('eyes-20x20.png');
+    background-position-x: -7px;
+    background-position-y: -7px;
+}
+
+.eye.left {
+    background-position-x: 0;
+}
+
+.eye.right {
+    background-position-x: -14px;
+}
+
+.eye.top {
+    background-position-y: 0;
+}
+
+.eye.bottom {
+    background-position-y: -14px;
+}
