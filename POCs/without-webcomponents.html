@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>X (html) Eyes - without WebComponents</title>
+    <link rel="stylesheet" href="without-webcomponents/eyes-20x20.css">
+</head>
+
+<body>
+    <div class="head">
+        <div class="eye left-eye"></div>
+        <div class="eye right-eye"></div>
+    </div>
+    <script>
+        let head, eyes;
+        const HEAD_WIDTH = 20;
+        const HEAD_HEIGHT = 20;
+        window.addEventListener("load", () => {
+            head = document.querySelector(".head")
+            eyes = document.querySelectorAll(".eye")
+            window.addEventListener("mousemove", mouseListener)
+        })
+
+        function mouseListener(event) {
+            eventDomCoord = {
+                x: window.scrollX + event.clientX,
+                y: window.scrollY + event.clientY
+            };
+            let dx = eventDomCoord.x - head.offsetLeft - (HEAD_WIDTH / 2)
+            let dy = eventDomCoord.y - head.offsetTop - (HEAD_HEIGHT / 2)
+                //console.log(window.getComputedStyle(head, null).width);
+                //console.log(eventDomCoord.x + "\t" + head.offsetLeft + "\t" + dx);
+            let dirX = 0;
+            if (dx > HEAD_WIDTH / 2) {
+                dirX = 1;
+            } else if (dx < -HEAD_WIDTH / 2) {
+                dirX = -1
+            }
+            // console.log(dx + "\t=>\t" + dirX);
+            let dirY = 0;
+            if (dy > HEAD_HEIGHT / 2) {
+                dirY = 1;
+            } else if (dy < -HEAD_HEIGHT / 2) {
+                dirY = -1
+            }
+            // console.log(dy + "\t=>\t" + dirY);
+            eyes.forEach(eye => {
+                let classes = eye.classList
+                if (dirX < 1) classes.remove("right")
+                if (0 < dirX) classes.add("right")
+                if (-1 < dirX) classes.remove("left")
+                if (dirX < 0) classes.add("left")
+
+                if (dirY < 1) classes.remove("bottom")
+                if (0 < dirY) classes.add("bottom")
+                if (-1 < dirY) classes.remove("top")
+                if (dirY < 0) classes.add("top")
+            });
+        }
+    </script>
+</body>
+
+</html>
